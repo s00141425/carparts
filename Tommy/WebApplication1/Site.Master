@@ -31,7 +31,7 @@
                     </div>
                     <div class="navbar-collapse collapse">
                         <ul class="nav navbar-nav navbar-right">
-                            <li class="active"><a href="Index.aspx">Home</a></li>
+                            <li class="active"><a href="default.aspx">Home</a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Shop<b class="caret"></b></a>
                                 <ul class="dropdown-menu">
@@ -72,7 +72,7 @@
     <footer>
         <div class="container">
             <p class="pull-right"><a href="#">Back to top</a></p>
-            <p>&copy; 2015 MightyCarParts | <a href="Index.aspx">Home</a> | <a href="#">Shop</a> | <a href="#">Location</a> | <a href="#">About Us |</a></p>
+            <p>&copy; 2015 MightyCarParts | <a href="default.aspx">Home</a> | <a href="#">Shop</a> | <a href="#">Location</a> | <a href="#">About Us |</a></p>
         </div>
     </footer>
     

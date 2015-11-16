@@ -63,7 +63,7 @@ namespace WebApplication1
             if (httpCookie != null)
                 httpCookie.Expires = DateTime.Now.AddYears(-1);
 
-            Response.Redirect("~/Index.aspx");
+            Response.Redirect("~/default.aspx");
         }
     }
 }

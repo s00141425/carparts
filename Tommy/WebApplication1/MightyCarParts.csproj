@@ -94,7 +94,7 @@
     <Content Include="Images\04.jpg" />
     <Content Include="Images\05.jpg" />
     <Content Include="Images\MightyCarBanner.jpg" />
-    <Content Include="Index.aspx" />
+    <Content Include="default.aspx" />
     <Content Include="LogIn.aspx" />
     <Content Include="Models\MightyCarParts.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -174,12 +174,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Index.aspx.cs">
-      <DependentUpon>Index.aspx</DependentUpon>
+    <Compile Include="default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Index.aspx.designer.cs">
-      <DependentUpon>Index.aspx</DependentUpon>
+    <Compile Include="default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
     </Compile>
     <Compile Include="LogIn.aspx.cs">
       <DependentUpon>LogIn.aspx</DependentUpon>
