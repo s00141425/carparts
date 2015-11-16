@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="425fe8cf2b374a1d8d98600b52319d70" Name="Diagram1">
+        <EntityTypeShape EntityType="MightyCarPartsModel.Category" Width="1.5" PointX="3" PointY="6" />
+        <EntityTypeShape EntityType="MightyCarPartsModel.County" Width="1.5" PointX="0.75" PointY="9.5" />
+        <EntityTypeShape EntityType="MightyCarPartsModel.Customer" Width="1.5" PointX="3" PointY="9" />
+        <EntityTypeShape EntityType="MightyCarPartsModel.Model" Width="1.5" PointX="3" PointY="1.75" />
+        <EntityTypeShape EntityType="MightyCarPartsModel.Order" Width="1.5" PointX="5.25" PointY="9" />
+        <EntityTypeShape EntityType="MightyCarPartsModel.OrderDetail" Width="1.5" PointX="7.5" PointY="1.375" />
+        <EntityTypeShape EntityType="MightyCarPartsModel.Product" Width="1.5" PointX="5.25" PointY="1" />
+        <EntityTypeShape EntityType="MightyCarPartsModel.Review" Width="1.5" PointX="5.25" PointY="6.375" />
+        <EntityTypeShape EntityType="MightyCarPartsModel.VehicleMake" Width="1.5" PointX="0.75" PointY="2.125" />
+        <AssociationConnector Association="MightyCarPartsModel.FK_Product_Category" />
+        <AssociationConnector Association="MightyCarPartsModel.FK_Customer_Country" />
+        <AssociationConnector Association="MightyCarPartsModel.FK_Order_Customer" />
+        <AssociationConnector Association="MightyCarPartsModel.FK_Model_VehicleMake" />
+        <AssociationConnector Association="MightyCarPartsModel.FK_Product_Model" />
+        <AssociationConnector Association="MightyCarPartsModel.FK_OrderDetail_Order" />
+        <AssociationConnector Association="MightyCarPartsModel.FK_OrderDetail_Product" />
+        <AssociationConnector Association="MightyCarPartsModel.FK_OrderDetail_Review" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

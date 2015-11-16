@@ -1,0 +1,65 @@
+﻿.center {
+    text-align: center;
+}
+
+.center-page {
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    top: -40px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.space-vert {
+    margin-top: 20px;
+}
+
+.footer-pos {
+    /*width:auto;
+    height:auto;
+    position:absolute;
+
+    top:600px;
+    bottom:0;
+    left:0;
+    right:0;
+
+    margin:auto;*/
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+}
+
+body {
+    /*padding-top: 50px;*/
+}
+
+#topnavbar {
+    margin: 0;
+}
+
+    #topnavbar.affix {
+        position: fixed;
+        top: 0;
+        width: 100%;
+    }
+
+#banner {
+    text-align: center;
+}
+
+#NavLogin {
+    margin-left: 5px;
+}
+
+.carousel {
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.navbar-brand {
+    font-size: 14px;
+}
