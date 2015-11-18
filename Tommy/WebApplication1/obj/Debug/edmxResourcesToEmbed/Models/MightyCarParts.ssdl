@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MightyCarPartsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="CategoryID" />
+    </Key>
+    <Property Name="CategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CategoryName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CategoryDescription" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="County">
+    <Key>
+      <PropertyRef Name="CountyID" />
+    </Key>
+    <Property Name="CountyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CountyName" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="CustomerID" />
+    </Key>
+    <Property Name="CustomerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="PasswordEncripted" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Address" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="CountyID" Type="int" Nullable="false" />
+    <Property Name="Mobile" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Model">
+    <Key>
+      <PropertyRef Name="ModelID" />
+    </Key>
+    <Property Name="ModelID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VehicleMakerID" Type="int" Nullable="false" />
+    <Property Name="ModelName" Type="nvarchar" MaxLength="50" />
+    <Property Name="ModelDescription" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerID" Type="int" Nullable="false" />
+    <Property Name="OrderDate" Type="smalldatetime" Nullable="false" />
+    <Property Name="ShippingDate" Type="smalldatetime" Nullable="false" />
+    <Property Name="TrackingNumber" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="TotalCost" Type="smallmoney" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OrderDetail">
+    <Key>
+      <PropertyRef Name="OrderDetailID" />
+    </Key>
+    <Property Name="OrderDetailID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrderID" Type="int" Nullable="false" />
+    <Property Name="ProductID" Type="int" Nullable="false" />
+    <Property Name="UnitPrice" Type="smallmoney" Nullable="false" />
+    <Property Name="Quantity" Type="int" Nullable="false" />
+    <Property Name="Discount" Type="float" Nullable="false" />
+    <Property Name="ReviewID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ProductDescription" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="CategoryID" Type="int" Nullable="false" />
+    <Property Name="ModelID" Type="int" Nullable="false" />
+    <Property Name="Years" Type="int" Nullable="false" />
+    <Property Name="QuantityPerUnit" Type="smallmoney" Nullable="false" />
+    <Property Name="UnitPrice" Type="smallmoney" Nullable="false" />
+    <Property Name="UnitsInStock" Type="int" Nullable="false" />
+    <Property Name="UnitOnOrder" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="ImageFile" Type="nvarchar" MaxLength="200" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Review">
+    <Key>
+      <PropertyRef Name="ReviewID" />
+    </Key>
+    <Property Name="ReviewID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Rating" Type="int" Nullable="false" />
+    <Property Name="Comment" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="VehicleMake">
+    <Key>
+      <PropertyRef Name="VehicleMakerID" />
+    </Key>
+    <Property Name="VehicleMakerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MakerName" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Customer_Country">
+    <End Role="County" Type="Self.County" Multiplicity="1" />
+    <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="County">
+        <PropertyRef Name="CountyID" />
+      </Principal>
+      <Dependent Role="Customer">
+        <PropertyRef Name="CountyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Model_VehicleMake">
+    <End Role="VehicleMake" Type="Self.VehicleMake" Multiplicity="1" />
+    <End Role="Model" Type="Self.Model" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VehicleMake">
+        <PropertyRef Name="VehicleMakerID" />
+      </Principal>
+      <Dependent Role="Model">
+        <PropertyRef Name="VehicleMakerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_Customer">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderDetail_Order">
+    <End Role="Order" Type="Self.Order" Multiplicity="1" />
+    <End Role="OrderDetail" Type="Self.OrderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order">
+        <PropertyRef Name="OrderID" />
+      </Principal>
+      <Dependent Role="OrderDetail">
+        <PropertyRef Name="OrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderDetail_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="1" />
+    <End Role="OrderDetail" Type="Self.OrderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="OrderDetail">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OrderDetail_Review">
+    <End Role="Review" Type="Self.Review" Multiplicity="1" />
+    <End Role="OrderDetail" Type="Self.OrderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Review">
+        <PropertyRef Name="ReviewID" />
+      </Principal>
+      <Dependent Role="OrderDetail">
+        <PropertyRef Name="ReviewID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Product_Category">
+    <End Role="Category" Type="Self.Category" Multiplicity="1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="CategoryID" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Product_Model">
+    <End Role="Model" Type="Self.Model" Multiplicity="1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Model">
+        <PropertyRef Name="ModelID" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="ModelID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MightyCarPartsModelStoreContainer">
+    <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="County" EntityType="Self.County" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Model" EntityType="Self.Model" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderDetail" EntityType="Self.OrderDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Review" EntityType="Self.Review" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VehicleMake" EntityType="Self.VehicleMake" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Customer_Country" Association="Self.FK_Customer_Country">
+      <End Role="County" EntitySet="County" />
+      <End Role="Customer" EntitySet="Customer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Model_VehicleMake" Association="Self.FK_Model_VehicleMake">
+      <End Role="VehicleMake" EntitySet="VehicleMake" />
+      <End Role="Model" EntitySet="Model" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_Customer" Association="Self.FK_Order_Customer">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderDetail_Order" Association="Self.FK_OrderDetail_Order">
+      <End Role="Order" EntitySet="Order" />
+      <End Role="OrderDetail" EntitySet="OrderDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderDetail_Product" Association="Self.FK_OrderDetail_Product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="OrderDetail" EntitySet="OrderDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OrderDetail_Review" Association="Self.FK_OrderDetail_Review">
+      <End Role="Review" EntitySet="Review" />
+      <End Role="OrderDetail" EntitySet="OrderDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_Category" Association="Self.FK_Product_Category">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="Product" EntitySet="Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_Model" Association="Self.FK_Product_Model">
+      <End Role="Model" EntitySet="Model" />
+      <End Role="Product" EntitySet="Product" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MightyCarPartsModelStoreContainer" CdmEntityContainer="MightyCarPartsDBContext">
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="MightyCarPartsModel.Category">
+        <MappingFragment StoreEntitySet="Category">
+          <ScalarProperty Name="CategoryDescription" ColumnName="CategoryDescription" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Counties">
+      <EntityTypeMapping TypeName="MightyCarPartsModel.County">
+        <MappingFragment StoreEntitySet="County">
+          <ScalarProperty Name="CountyName" ColumnName="CountyName" />
+          <ScalarProperty Name="CountyID" ColumnName="CountyID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="MightyCarPartsModel.Customer">
+        <MappingFragment StoreEntitySet="Customer">
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="CountyID" ColumnName="CountyID" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="PasswordEncripted" ColumnName="PasswordEncripted" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Models">
+      <EntityTypeMapping TypeName="MightyCarPartsModel.Model">
+        <MappingFragment StoreEntitySet="Model">
+          <ScalarProperty Name="ModelDescription" ColumnName="ModelDescription" />
+          <ScalarProperty Name="ModelName" ColumnName="ModelName" />
+          <ScalarProperty Name="VehicleMakerID" ColumnName="VehicleMakerID" />
+          <ScalarProperty Name="ModelID" ColumnName="ModelID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="MightyCarPartsModel.Order">
+        <MappingFragment StoreEntitySet="Order">
+          <ScalarProperty Name="TotalCost" ColumnName="TotalCost" />
+          <ScalarProperty Name="TrackingNumber" ColumnName="TrackingNumber" />
+          <ScalarProperty Name="ShippingDate" ColumnName="ShippingDate" />
+          <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderDetails">
+      <EntityTypeMapping TypeName="MightyCarPartsModel.OrderDetail">
+        <MappingFragment StoreEntitySet="OrderDetail">
+          <ScalarProperty Name="ReviewID" ColumnName="ReviewID" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+          <ScalarProperty Name="OrderDetailID" ColumnName="OrderDetailID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="MightyCarPartsModel.Product">
+        <MappingFragment StoreEntitySet="Product">
+          <ScalarProperty Name="ImageFile" ColumnName="ImageFile" />
+          <ScalarProperty Name="UnitOnOrder" ColumnName="UnitOnOrder" />
+          <ScalarProperty Name="UnitsInStock" ColumnName="UnitsInStock" />
+          <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+          <ScalarProperty Name="QuantityPerUnit" ColumnName="QuantityPerUnit" />
+          <ScalarProperty Name="Years" ColumnName="Years" />
+          <ScalarProperty Name="ModelID" ColumnName="ModelID" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="ProductDescription" ColumnName="ProductDescription" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Reviews">
+      <EntityTypeMapping TypeName="MightyCarPartsModel.Review">
+        <MappingFragment StoreEntitySet="Review">
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="Rating" ColumnName="Rating" />
+          <ScalarProperty Name="ReviewID" ColumnName="ReviewID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VehicleMakes">
+      <EntityTypeMapping TypeName="MightyCarPartsModel.VehicleMake">
+        <MappingFragment StoreEntitySet="VehicleMake">
+          <ScalarProperty Name="MakerName" ColumnName="MakerName" />
+          <ScalarProperty Name="VehicleMakerID" ColumnName="VehicleMakerID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
