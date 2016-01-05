@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.Remoting.Messaging;
 using System.Web;
@@ -24,7 +25,27 @@ namespace WebApplication1
 
                 Session.Clear();
             }
-            imgComment.ImageUrl = "~/Images/Products/p" + new Random().Next(1, 19) + ".png";
+            
+            RandomComment();
+        }
+
+        private void RandomComment()
+        {
+            var reviewCount = db.Reviews.Count();
+            Random rng = new Random((int) DateTime.Now.Ticks);
+            var rngReview = rng.Next(1, reviewCount + 1);
+
+            var rngOrderDetail = db.OrderDetails.FirstOrDefault(od => od.ReviewID == rngReview);
+            if (rngOrderDetail != null)
+            {
+                var rngProductImg = rngOrderDetail.Product.ImageFile;
+
+                lblProdDesc.Text = rngOrderDetail.Product.ProductDescription;
+                imgComment.ImageUrl = "~/Images/Products/" + rngProductImg;
+            }
+            lblUser.Text = "Buyer: " + rngOrderDetail.Order.Customer.CustomerName;
+            lblComment.Text = db.Reviews.Find(rngReview).Comment;
+            
         }
 
         protected void ddlMaker_OnSelectedIndexChanged(object sender, EventArgs e)
@@ -94,7 +115,7 @@ namespace WebApplication1
                 };
 
                 Session["SelectedProduct"] = selectedProduct;
-                Response.Redirect("~/Category.aspx");
+                Response.Redirect("/Category");
             }
         }
 

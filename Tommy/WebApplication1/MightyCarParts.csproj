@@ -116,6 +116,7 @@
     <Content Include="Images\Products\p17.png" />
     <Content Include="Images\Products\p18.png" />
     <Content Include="Images\Products\p19.png" />
+    <Content Include="Location.aspx" />
     <Content Include="LogIn.aspx" />
     <Content Include="Models\MightyCarParts.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -129,9 +130,10 @@
     </Content>
     <Content Include="packages.config" />
     <Content Include="Account\Web.config" />
-    <Content Include="Account\Payment.aspx" />
+    <Content Include="Payment.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="Scripts\JavaScript.js" />
+    <Content Include="Scripts\jquery.zoomooz.min.js" />
     <Content Include="Site.Master" />
     <Content Include="Scripts\jquery-1.9.1.min.map" />
     <EntityDeploy Include="Models\MightyCarParts.edmx">
@@ -209,6 +211,13 @@
     <Compile Include="default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Location.aspx.cs">
+      <DependentUpon>Location.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Location.aspx.designer.cs">
+      <DependentUpon>Location.aspx</DependentUpon>
+    </Compile>
     <Compile Include="LogIn.aspx.cs">
       <DependentUpon>LogIn.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -231,22 +240,22 @@
       <DependentUpon>MightyCarParts.Context.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\MightyCarParts.cs" />
-    <Compile Include="Account\Payment.aspx.cs">
+    <Compile Include="Models\MightyCarParts1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MightyCarParts.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Payment.aspx.cs">
       <DependentUpon>Payment.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Account\Payment.aspx.designer.cs">
+    <Compile Include="Payment.aspx.designer.cs">
       <DependentUpon>Payment.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\MightyCarParts.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>MightyCarParts.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\MightyCarParts1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MightyCarParts.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Model.cs">
       <DependentUpon>MightyCarParts.tt</DependentUpon>

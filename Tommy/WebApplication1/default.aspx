@@ -24,7 +24,7 @@
                             <div class="carousel-caption">
                                 <h3>GTA 1</h3>
                                 <p>Godfather Car</p>
-                                <p><a class="btn btn-lg btn-primary btn-xs" href="Register.aspx" role="button">Join.Us.Today</a></p>
+                                <p><a class="btn btn-lg btn-primary btn-xs" href="/Register" role="button">Join.Us.Today</a></p>
                             </div>
                         </div>
                         <div class="item">
@@ -32,7 +32,7 @@
                             <div class="carousel-caption">
                                 <h3>GTA 2</h3>
                                 <p>Gangster Car</p>
-                                <p><a class="btn btn-lg btn-success btn-xs" href="Register.aspx" role="button">Hurry.Up.To.Join</a></p>
+                                <p><a class="btn btn-lg btn-success btn-xs" href="/Register" role="button">Hurry.Up.To.Join</a></p>
                             </div>
                         </div>
                         <div class="item">
@@ -40,7 +40,7 @@
                             <div class="carousel-caption">
                                 <h3>GTA 3</h3>
                                 <p>Mafia Wife's Car</p>
-                                <p><a class="btn btn-lg btn-info btn-xs" href="Register.aspx" role="button">Buy.1.Get.1.Free</a></p>
+                                <p><a class="btn btn-lg btn-info btn-xs" href="/Register" role="button">Buy.1.Get.1.Free</a></p>
                             </div>
                         </div>
                         <div class="item">
@@ -48,7 +48,7 @@
                             <div class="carousel-caption">
                                 <h3>GTA 4</h3>
                                 <p>Auto Rickshaw</p>
-                                <p><a class="btn btn-lg btn-warning btn-xs" href="Register.aspx" role="button">Hop.In.</a></p>
+                                <p><a class="btn btn-lg btn-warning btn-xs" href="/Register" role="button">Hop.In.</a></p>
                             </div>
                         </div>
                         <div class="item">
@@ -56,7 +56,7 @@
                             <div class="carousel-caption">
                                 <h3>WARNING</h3>
                                 <p>Garda is watching you</p>
-                                <p><a class="btn btn-lg btn-danger btn-xs" href="Register.aspx" role="button">We.Want.You!</a></p>
+                                <p><a class="btn btn-lg btn-danger btn-xs" href="/Register" role="button">We.Want.You!</a></p>
                             </div>
                         </div>
                     </div>
@@ -114,32 +114,35 @@
                     <div class="form-group">
                         <div class="col-sm-12 text-right">
                             <asp:LinkButton runat="server" ID="lbnSearch" CssClass="btn btn-success btnProduct" OnClick="lbnSearch_OnClick">
-                                <span class="glyphicon glyphicon-search"></span> Search
+                                <span class="glyphicon glyphicon-search"></span>Search
                             </asp:LinkButton>
                         </div>
                     </div>
                 </div>
 
-                <div class="well">
+                <div class="well zoomTarget">
+                    <div class="text-center">
+                        <h5><asp:Label runat="server" ID="lblProdDesc" CssClass="label label-info"></asp:Label></h5>
+                    </div>
                     <asp:Image runat="server" ID="imgComment" class="center-block imgComment" />
-
                     <div class="caption">
                         <div class="row">
-                            <div class="input-group comment-margin">
-                                <asp:TextBox runat="server" ID="tbxComment" placeholder="Please leave the comment" class="form-control"></asp:TextBox>
-                                <span class="input-group-btn">
-                                    <asp:Button runat="server" ID="btnComment" Text="submit" CssClass="btn btn-info" OnClick="btnComment_OnClick"/></span>
+                            <div class="text-center">
+                                <h3><asp:Label runat="server" ID="lblUser" CssClass="label label-warning"></asp:Label></h3>                                
+                                <span>
+                                    <asp:Label runat="server" ID="lblComment"></asp:Label>
+                                </span>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="well">
-                    <h4>Side Widget Well</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur vero.</p>
+                    <h4>Our services</h4>
+                    <p>When you get right down to it, success is all about value and trust.</p>
                 </div>
             </div>
         </div>
     </div>
-
 </asp:Content>
+

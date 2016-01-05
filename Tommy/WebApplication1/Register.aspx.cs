@@ -40,7 +40,7 @@ namespace WebApplication1
             if (result)
             {
                 lblMsg.Text = "it has inserted successfully";
-                Response.Redirect("~/login.aspx");
+                Response.Redirect("/Login");
             }
             else
             {

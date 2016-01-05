@@ -77,6 +77,10 @@ body {
     margin-top: 10px;
 }
 
+.comment-desc {
+    margin-bottom: 10px;  
+}
+
 .imgComment {
     width: 50%;
 }

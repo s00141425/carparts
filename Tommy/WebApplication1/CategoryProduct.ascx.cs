@@ -18,13 +18,13 @@ namespace WebApplication1
 
         protected void lbnView_OnClick(object sender, EventArgs e)
         {
-            Response.Redirect("~/Details.aspx");
+            Response.Redirect("/Details");
             //needs to pass the selected product with the Session
         }
 
         protected void lblAdd_OnClick(object sender, EventArgs e)
         {
-            Response.Redirect("~/Basket.aspx");
+            Response.Redirect("/Basket");
             //need to added the selected product in basket
         }
 

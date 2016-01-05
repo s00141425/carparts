@@ -39,7 +39,7 @@
                 <div class="col-md-2"></div>
                 <div class="col-md-6">
                     <asp:Button ID="btnLogin" runat="server" Text="Log In" CssClass="btn btn-primary" OnClick="btnLogin_Click" />
-                    <asp:LinkButton ID="LinkRegister" runat="server" PostBackUrl="~/Register.aspx" Text="Register" CssClass="btn btn-info" CausesValidation="False"></asp:LinkButton>
+                    <asp:LinkButton ID="LinkRegister" runat="server" PostBackUrl="/Register" Text="Register" CssClass="btn btn-info" CausesValidation="False"></asp:LinkButton>
                 </div>
             </div>
             <div class="form-group">

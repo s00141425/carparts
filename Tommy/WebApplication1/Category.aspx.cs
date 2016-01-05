@@ -23,14 +23,8 @@ namespace WebApplication1
                 DisplayMaker();
 
                 DisplayProductLists();
-
-
-
-
             }
-
-
-
+            
             Test_Category_Product();
         }
 

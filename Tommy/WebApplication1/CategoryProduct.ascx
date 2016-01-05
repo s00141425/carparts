@@ -1,6 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="CategoryProduct.ascx.cs" Inherits="WebApplication1.CategoryProduct" %>
 
-<div class="well">
+<div class="well zoomTarget">
     <asp:Image runat="server" ID="imgProduct" CssClass="img-responsive" />
     <p class="text-center">
         <asp:Label runat="server" ID="lblDesc"></asp:Label>

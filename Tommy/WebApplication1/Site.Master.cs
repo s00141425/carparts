@@ -19,10 +19,10 @@ namespace WebApplication1
         {
             if (string.IsNullOrEmpty(HttpContext.Current.User.Identity.Name))
             {
-                HtmlAnchor anchorLogin = new HtmlAnchor() { HRef = "Login.aspx", InnerText = "LogIn" };
+                HtmlAnchor anchorLogin = new HtmlAnchor() { HRef = "/Login", InnerText = "LogIn" };
                 anchorLogin.Attributes.Add("class", "navbar-brand");
 
-                HtmlAnchor anchorRegister = new HtmlAnchor { HRef = "Register.aspx", InnerText = "Register" };
+                HtmlAnchor anchorRegister = new HtmlAnchor { HRef = "/Register", InnerText = "Register" };
                 anchorRegister.Attributes.Add("class", "navbar-brand");
 
                 divUserInfo.Controls.Add(anchorLogin);
@@ -49,7 +49,7 @@ namespace WebApplication1
                 divUserInfo.Controls.Add(anchorLogOut);
             }
 
-            HtmlAnchor shoppingCart = new HtmlAnchor() { HRef = "Basket.aspx" };
+            HtmlAnchor shoppingCart = new HtmlAnchor() { HRef = "/Basket" };
             shoppingCart.Attributes.Add("class", "navbar-btn btn btn-primary");
 
             var span = new HtmlGenericControl("span") {InnerHtml = "Basket" };
@@ -73,7 +73,7 @@ namespace WebApplication1
             if (httpCookie != null)
                 httpCookie.Expires = DateTime.Now.AddYears(-1);
 
-            Response.Redirect("~/default.aspx");
+            Response.Redirect("/Home");
         }
     }
 }

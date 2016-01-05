@@ -76,7 +76,7 @@
                 <div class="col-md-2"></div>
                 <div class="col-md-6">
                     <asp:Button runat="server" ID="btnRegister" Class="btn btn-success" Text="Register" OnClick="btnRegister_OnClick" />
-                    <asp:Button runat="server" ID="btnCancel" CssClass="btn btn-info" Text="Cancel" PostBackUrl="default.aspx" CausesValidation="False" />
+                    <asp:Button runat="server" ID="btnCancel" CssClass="btn btn-info" Text="Cancel" PostBackUrl="/Home" CausesValidation="False" />
                     <asp:Label ID="lblMsg" runat="server" CssClass="text-danger"></asp:Label>
                 </div>
             </div>
