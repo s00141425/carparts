@@ -7,7 +7,7 @@ version 2
 3. move the basket to top navbar
  
  frontPage
- ![frontPage](WebApplication1/frontpage.jpg?raw=true)
+ ![frontPage](frontpage.jpg?raw=true)
 
  secondPage
- ![secondPage](WebApplication1/secondpage.jpg?raw=true)
+ ![secondPage](secondpage.jpg?raw=true)
