@@ -4,9 +4,6 @@
     <title>Index</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <%--    <div class="container">
-        <h4>Index pages</h4>
-    </div>--%>
 
     <div class="container">
         <div class="row">
@@ -77,17 +74,7 @@
             </div>
             <hr />
 
-
-
-
-
-
-
-
-            <!-- Blog Sidebar Widgets Column -->
             <div class="col-md-4">
-
-
                 <div class="panel panel-default form-horizontal well">
                     <div class="form-group">
                         <asp:Label runat="server" AssociatedControlID="ddlMaker" CssClass="col-sm-3 control-label">Maker</asp:Label>
@@ -95,81 +82,58 @@
                             <asp:DropDownList runat="server" ID="ddlMaker" CssClass="form-control" AutoPostBack="True" OnSelectedIndexChanged="ddlMaker_OnSelectedIndexChanged" />
                         </div>
                     </div>
-                    <div class="form-group">
-                        <asp:Label runat="server" AssociatedControlID="ddlModel" CssClass="col-sm-3 control-label">Model</asp:Label>
-                        <div class="col-sm-9">
-                            <asp:DropDownList runat="server" ID="ddlModel" CssClass="form-control" AutoPostBack="True" Enabled="False" OnSelectedIndexChanged="ddlModel_OnSelectedIndexChanged" />
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <asp:Label runat="server" AssociatedControlID="ddlYear" CssClass="col-sm-3 control-label">Year</asp:Label>
-                        <div class="col-sm-9">
-                            <asp:DropDownList runat="server" ID="ddlYear" CssClass="form-control" Enabled="False" />
-                        </div>
-                    </div>
+
+                    <asp:UpdatePanel runat="server">
+                        <Triggers>
+                            <asp:AsyncPostBackTrigger ControlID="ddlMaker" EventName="SelectedIndexChanged" />
+                        </Triggers>
+                        <ContentTemplate>
+                            <div class="form-group">
+                                <asp:Label runat="server" AssociatedControlID="ddlModel" CssClass="col-sm-3 control-label">Model</asp:Label>
+                                <div class="col-sm-9">
+                                    <asp:DropDownList runat="server" ID="ddlModel" CssClass="form-control" AutoPostBack="True" Enabled="False" OnSelectedIndexChanged="ddlModel_OnSelectedIndexChanged" />
+                                </div>
+                            </div>
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
+
+                    <asp:UpdatePanel runat="server">
+                        <Triggers>
+                            <asp:AsyncPostBackTrigger ControlID="ddlModel" EventName="SelectedIndexChanged" />
+                        </Triggers>
+                        <ContentTemplate>
+                            <div class="form-group">
+                                <asp:Label runat="server" AssociatedControlID="ddlYear" CssClass="col-sm-3 control-label">Year</asp:Label>
+                                <div class="col-sm-9">
+                                    <asp:DropDownList runat="server" ID="ddlYear" CssClass="form-control" Enabled="False" />
+                                </div>
+                            </div>
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
+
                     <div class="form-group">
                         <div class="col-sm-12 text-right">
-                            <asp:LinkButton runat="server" ID="lbnSearch" CssClass="btn btn-success" OnClick="lbnSearch_OnClick">
+                            <asp:LinkButton runat="server" ID="lbnSearch" CssClass="btn btn-success btnProduct" OnClick="lbnSearch_OnClick">
                                 <span class="glyphicon glyphicon-search"></span> Search
                             </asp:LinkButton>
                         </div>
                     </div>
                 </div>
 
-
-
-
-
-
-
-
-                <%--<!-- Blog Search Well -->
                 <div class="well">
-                    <h4>Blog Search</h4>
-                    <div class="input-group">
-                        <input type="text" class="form-control" />
-                        <span class="input-group-btn">
-                            <button class="btn btn-default" type="button">
-                                <span class="glyphicon glyphicon-search"></span>
-                            </button>
-                        </span>
-                    </div>
-                    <!-- /.input-group -->
-                </div>--%>
+                    <asp:Image runat="server" ID="imgComment" class="center-block imgComment" />
 
-                <!-- Blog Categories Well -->
-                <div class="well">
-                    <h4>Blog Categories</h4>
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <ul class="list-unstyled">
-                                <li><a href="#">Category Name</a>
-                                </li>
-                                <li><a href="#">Category Name</a>
-                                </li>
-                                <li><a href="#">Category Name</a>
-                                </li>
-                                <li><a href="#">Category Name</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-lg-6">
-                            <ul class="list-unstyled">
-                                <li><a href="#">Category Name</a>
-                                </li>
-                                <li><a href="#">Category Name</a>
-                                </li>
-                                <li><a href="#">Category Name</a>
-                                </li>
-                                <li><a href="#">Category Name</a>
-                                </li>
-                            </ul>
+                    <div class="caption">
+                        <div class="row">
+                            <div class="input-group comment-margin">
+                                <asp:TextBox runat="server" ID="tbxComment" placeholder="Please leave the comment" class="form-control"></asp:TextBox>
+                                <span class="input-group-btn">
+                                    <asp:Button runat="server" ID="btnComment" Text="submit" CssClass="btn btn-info" OnClick="btnComment_OnClick"/></span>
+                            </div>
                         </div>
                     </div>
-                    <!-- /.row -->
                 </div>
 
-                <!-- Side Widget Well -->
                 <div class="well">
                     <h4>Side Widget Well</h4>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur vero.</p>

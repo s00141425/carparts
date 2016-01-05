@@ -63,3 +63,20 @@ body {
 .navbar-brand {
     font-size: 14px;
 }
+
+.btnProduct
+{
+    width: 100%;
+}
+
+.glyphicon:before {
+    margin-right: 5px;
+}
+
+.comment-margin {
+    margin-top: 10px;
+}
+
+.imgComment {
+    width: 50%;
+}

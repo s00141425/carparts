@@ -48,6 +48,16 @@ namespace WebApplication1
                 divUserInfo.Controls.Add(anchorUser);
                 divUserInfo.Controls.Add(anchorLogOut);
             }
+
+            HtmlAnchor shoppingCart = new HtmlAnchor() { HRef = "Basket.aspx" };
+            shoppingCart.Attributes.Add("class", "navbar-btn btn btn-primary");
+
+            var span = new HtmlGenericControl("span") {InnerHtml = "Basket" };
+            span.Attributes.Add("class", "glyphicon glyphicon-shopping-cart");
+
+            shoppingCart.Controls.Add(span);
+
+            divUserInfo.Controls.Add(shoppingCart);
         }
 
         private void LnkLogout_Click(object sender, EventArgs e)

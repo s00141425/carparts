@@ -80,12 +80,13 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Account\Basket.aspx" />
+    <Content Include="Basket.aspx" />
     <Content Include="App_Data\MightyCarParts.mdf" />
     <Content Include="App_Data\MightyCarParts_log.ldf">
       <DependentUpon>MightyCarParts.mdf</DependentUpon>
     </Content>
     <Content Include="Category.aspx" />
+    <Content Include="CategoryProduct.ascx" />
     <Content Include="Content\StyleSheet.css" />
     <Content Include="Details.aspx" />
     <Content Include="Images\01.jpg" />
@@ -93,8 +94,28 @@
     <Content Include="Images\03.jpg" />
     <Content Include="Images\04.jpg" />
     <Content Include="Images\05.jpg" />
+    <Content Include="Images\favicon.png" />
     <Content Include="Images\MightyCarBanner.jpg" />
     <Content Include="default.aspx" />
+    <Content Include="Images\Products\p1.png" />
+    <Content Include="Images\Products\p2.png" />
+    <Content Include="Images\Products\p3.png" />
+    <Content Include="Images\Products\p4.png" />
+    <Content Include="Images\Products\p5.png" />
+    <Content Include="Images\Products\p6.png" />
+    <Content Include="Images\Products\p7.png" />
+    <Content Include="Images\Products\p8.png" />
+    <Content Include="Images\Products\p9.png" />
+    <Content Include="Images\Products\p10.png" />
+    <Content Include="Images\Products\p11.png" />
+    <Content Include="Images\Products\p12.png" />
+    <Content Include="Images\Products\p13.png" />
+    <Content Include="Images\Products\p14.png" />
+    <Content Include="Images\Products\p15.png" />
+    <Content Include="Images\Products\p16.png" />
+    <Content Include="Images\Products\p17.png" />
+    <Content Include="Images\Products\p18.png" />
+    <Content Include="Images\Products\p19.png" />
     <Content Include="LogIn.aspx" />
     <Content Include="Models\MightyCarParts.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -157,12 +178,19 @@
     <Compile Include="Category.aspx.designer.cs">
       <DependentUpon>Category.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Account\Basket.aspx.cs">
+    <Compile Include="Basket.aspx.cs">
       <DependentUpon>Basket.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Account\Basket.aspx.designer.cs">
+    <Compile Include="Basket.aspx.designer.cs">
       <DependentUpon>Basket.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CategoryProduct.ascx.cs">
+      <DependentUpon>CategoryProduct.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CategoryProduct.ascx.designer.cs">
+      <DependentUpon>CategoryProduct.ascx</DependentUpon>
     </Compile>
     <Compile Include="Details.aspx.cs">
       <DependentUpon>Details.aspx</DependentUpon>

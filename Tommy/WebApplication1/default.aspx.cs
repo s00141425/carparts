@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -23,11 +24,16 @@ namespace WebApplication1
 
                 Session.Clear();
             }
+            imgComment.ImageUrl = "~/Images/Products/p" + new Random().Next(1, 19) + ".png";
         }
 
         protected void ddlMaker_OnSelectedIndexChanged(object sender, EventArgs e)
         {
-            var makerId = int.Parse(ddlMaker.SelectedValue);
+            //var makerId = int.Parse(ddlMaker.SelectedValue);
+
+            int makerId;
+            if (!int.TryParse(ddlMaker.SelectedValue, out makerId))
+                return;
 
             var models = db.Models.Where(m => m.VehicleMake.VehicleMakerID == makerId)
                 .OrderBy(m => m.VehicleMakerID)
@@ -48,7 +54,11 @@ namespace WebApplication1
 
         protected void ddlModel_OnSelectedIndexChanged(object sender, EventArgs e)
         {
-            var modelID = int.Parse(ddlModel.SelectedValue);
+            //var modelID = int.Parse(ddlModel.SelectedValue);
+            int modelID;
+            if (!int.TryParse(ddlModel.SelectedValue, out modelID))
+                return;
+
 
             var products = db.Products.Where(p => p.Model.ModelID == modelID)
                 .OrderBy(p => p.Years)
@@ -86,6 +96,11 @@ namespace WebApplication1
                 Session["SelectedProduct"] = selectedProduct;
                 Response.Redirect("~/Category.aspx");
             }
+        }
+
+        protected void btnComment_OnClick(object sender, EventArgs e)
+        {
+            
         }
     }
 }

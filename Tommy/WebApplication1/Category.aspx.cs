@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Web;
@@ -22,6 +23,48 @@ namespace WebApplication1
                 DisplayMaker();
 
                 DisplayProductLists();
+
+
+
+
+            }
+
+
+
+            Test_Category_Product();
+        }
+
+        private void Test_Category_Product()
+        {
+            var selectedMaker = db.VehicleMakes.SingleOrDefault(m => m.MakerName == selectedProduct.Maker);
+
+            if (selectedMaker != null)
+            {
+                var makerID = selectedMaker.VehicleMakerID;
+                var selectedModel = db.Models.SingleOrDefault(m => m.ModelName == selectedProduct.Model);
+                if (selectedModel != null)
+                {
+                    var modelID = selectedModel.ModelID;
+                    var allProducts = db.Products
+                        .Where(p => p.ModelID == modelID && p.Model.VehicleMakerID == makerID);
+
+                    int i = 0;
+                    foreach (Product product in allProducts)
+                    {
+                        i++;
+                        CategoryProduct categoryProduct = (CategoryProduct)LoadControl("~/CategoryProduct.ascx");
+                        categoryProduct.ID = "categoryProduct" + i;
+                        categoryProduct.SelectedProduct = product;
+                        if (i%2 == 1)
+                        {
+                            PlaceHolder1.Controls.Add(categoryProduct);
+                        }
+                        else
+                        {
+                            PlaceHolder2.Controls.Add(categoryProduct);
+                        }
+                    }
+                }
             }
         }
 
@@ -113,26 +156,33 @@ namespace WebApplication1
         {
             ddlCategorySelector.Items.Clear();
             DisplayMaker();
-            divSelectedProduct.InnerHtml = "<strong>Selected Car: Please select the category</strong>";
+            divSelectedProduct.InnerHtml = "<strong>Please select the category</strong>";
         }
 
         protected void DisplayProductLists()
         {
-            var makerID = db.VehicleMakes.SingleOrDefault(m => m.MakerName == selectedProduct.Maker).VehicleMakerID;
-            var modelID = db.Models.SingleOrDefault(m => m.ModelName == selectedProduct.Model).ModelID;
-            
-            var selectedProducts = db.Products.Where(p => p.ModelID == modelID && p.Model.VehicleMake.VehicleMakerID == makerID)
+            var selectedVehicle = db.VehicleMakes.SingleOrDefault(m => m.MakerName == selectedProduct.Maker);
+            if (selectedVehicle != null)
+            {
+                var makerID = selectedVehicle.VehicleMakerID;
+                var selectedModel = db.Models.SingleOrDefault(m => m.ModelName == selectedProduct.Model);
+                if (selectedModel != null)
+                {
+                    var modelID = selectedModel.ModelID;
+                    var selectedProducts = db.Products.Where(p => p.ModelID == modelID && p.Model.VehicleMakerID == makerID)
                         .Select(p => new
                         {
                             categoryName = p.Category.CategoryName
                         });
 
-            foreach (var product in selectedProducts)
-            {
-                HtmlGenericControl label = new HtmlGenericControl("label");
-                label.InnerText = product.categoryName;
-                label.Attributes.Add("class", "form-control");
-                divSelectedCategory.Controls.Add(label);
+                    foreach (var product in selectedProducts)
+                    {
+                        HtmlGenericControl label = new HtmlGenericControl("label");
+                        label.InnerText = product.categoryName;
+                        label.Attributes.Add("class", "form-control");
+                        divSelectedCategory.Controls.Add(label);
+                    }
+                }
             }
         }
 

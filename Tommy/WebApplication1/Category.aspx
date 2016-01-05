@@ -7,21 +7,38 @@
     <div class="container">
         <hr />
         <div class="row">
+            <%--            <div class="col-sm-12">
+                <div class="well text-center" id="divSelectedProduct" runat="server">
+                    <div class="text-right">
+                        <asp:LinkButton runat="server" ID="lbnShippingCart" CssClass="btn btn-primary small" OnClick="lbnShippingCart_OnClick">
+                                <span class="glyphicon glyphicon-shopping-cart"> Basket</span>
+                        </asp:LinkButton>
+                    </div>
+                </div>
+
+            </div>--%>
+
             <div class="col-sm-12">
                 <div class="well text-center" id="divSelectedProduct" runat="server">
-                    <div class="col-sm-12 text-right">
+                    <div class="text-right">
                         <asp:LinkButton runat="server" ID="lbnShippingCart" CssClass="btn btn-primary" OnClick="lbnShippingCart_OnClick">
-                                <span class="glyphicon glyphicon-shopping-cart"></span>
+                                <span class="glyphicon glyphicon-shopping-cart">Basket</span>
                         </asp:LinkButton>
                     </div>
                 </div>
 
             </div>
+
         </div>
 
         <div class="row">
             <div class="col-sm-3">
 
+                <%--                <asp:UpdatePanel runat="server">
+                    <Triggers>
+                        <asp:AsyncPostBackTrigger ControlID="ddlCategorySelector" EventName="SelectedIndexChanged" />
+                    </Triggers>
+                    <ContentTemplate>--%>
                 <div class="panel panel-default form-horizontal well">
                     <div class="form-group">
                         <div class="col-sm-12">
@@ -30,13 +47,16 @@
                     </div>
                     <div class="form-group">
                         <div class="col-sm-12 text-right">
-                            <asp:LinkButton runat="server" ID="lbnReset" CssClass="btn btn-success" OnClick="lbnReset_OnClick">
+                            <asp:LinkButton runat="server" ID="lbnReset" CssClass="btn btn-success btnProduct" OnClick="lbnReset_OnClick">
                                 <span class="glyphicon glyphicon-refresh"></span> Reset
                             </asp:LinkButton>
                         </div>
                     </div>
                 </div>
-                
+                <%--                    </ContentTemplate>
+                </asp:UpdatePanel>--%>
+
+
                 <div class="panel panel-default form-horizontal well">
                     <div class="form-group">
                         <div class="col-sm-12" id="divSelectedCategory" runat="server">
@@ -49,8 +69,16 @@
             </div>
             <div class="col-sm-6">
                 <div class="panel panel-default form-horizontal well">
-                    <div class="text-center">
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <asp:PlaceHolder runat="server" ID="PlaceHolder1"></asp:PlaceHolder>
+                        </div>
+                        <div class="col-md-6">
+                            <asp:PlaceHolder runat="server" ID="PlaceHolder2"></asp:PlaceHolder>
+                        </div>
                     </div>
+
                 </div>
             </div>
 
