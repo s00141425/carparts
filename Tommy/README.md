@@ -17,7 +17,7 @@ version 3
 
 version 4
 1. applied the view recently with AJAX
-2. fixed the jquery zoomzoomz
+2. fixed the jquery zoomzoomz 
 
 
  frontPage
