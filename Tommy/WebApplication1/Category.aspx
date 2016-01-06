@@ -7,16 +7,6 @@
     <div class="container">
         <hr />
         <div class="row">
-            <%--            <div class="col-sm-12">
-                <div class="well text-center" id="divSelectedProduct" runat="server">
-                    <div class="text-right">
-                        <asp:LinkButton runat="server" ID="lbnShippingCart" CssClass="btn btn-primary small" OnClick="lbnShippingCart_OnClick">
-                                <span class="glyphicon glyphicon-shopping-cart"> Basket</span>
-                        </asp:LinkButton>
-                    </div>
-                </div>
-
-            </div>--%>
 
             <div class="col-sm-12">
                 <div class="well text-center" id="divSelectedProduct" runat="server">
@@ -26,19 +16,12 @@
                         </asp:LinkButton>
                     </div>
                 </div>
-
             </div>
-
         </div>
 
         <div class="row">
             <div class="col-sm-3">
 
-                <%--                <asp:UpdatePanel runat="server">
-                    <Triggers>
-                        <asp:AsyncPostBackTrigger ControlID="ddlCategorySelector" EventName="SelectedIndexChanged" />
-                    </Triggers>
-                    <ContentTemplate>--%>
                 <div class="panel panel-default form-horizontal well">
                     <div class="form-group">
                         <div class="col-sm-12">
@@ -53,16 +36,11 @@
                         </div>
                     </div>
                 </div>
-                <%--                    </ContentTemplate>
-                </asp:UpdatePanel>--%>
-
 
                 <div class="panel panel-default form-horizontal well">
                     <div class="form-group">
                         <div class="col-sm-12" id="divSelectedCategory" runat="server">
 
-                            <%--<asp:Label runat="server" CssClass="form-control">Engine</asp:Label>
-                            <asp:Label runat="server" CssClass="form-control">Exhuast</asp:Label>--%>
                         </div>
                     </div>
                 </div>
@@ -85,11 +63,32 @@
             <div class="col-sm-3">
                 <div class="panel panel-default form-horizontal well">
                     <div class="text-center">
-                        Viewed Recently
+                        <h4><label class="label label-info">Viewed Recently</label></h4>
+                        <asp:UpdatePanel runat="server">
+                            <ContentTemplate>
+                                <asp:GridView runat="server" ID="grdMostView" AutoGenerateColumns="False" CellPadding="4" ForeColor="Black" GridLines="Vertical" BackColor="White" BorderColor="#DEDFDE" BorderStyle="None" BorderWidth="1px">
+                                    <AlternatingRowStyle BackColor="White" />
+                                    <Columns>
+                                        <asp:BoundField DataField="ProductName" HeaderText="Product Name" ItemStyle-HorizontalAlign="Center" />
+                                        <asp:BoundField DataField="ViewCounts" HeaderText="Counts" ItemStyle-HorizontalAlign="Center" />
+                                    </Columns>
+                                    <FooterStyle BackColor="#CCCC99" />
+                                    <HeaderStyle BackColor="#6B696B" Font-Bold="True" ForeColor="White" />
+                                    <PagerStyle BackColor="#F7F7DE" ForeColor="Black" HorizontalAlign="Right" />
+                                    <RowStyle BackColor="#F7F7DE" />
+                                    <SelectedRowStyle BackColor="#CE5D5A" Font-Bold="True" ForeColor="White" />
+                                    <SortedAscendingCellStyle BackColor="#FBFBF2" />
+                                    <SortedAscendingHeaderStyle BackColor="#848384" />
+                                    <SortedDescendingCellStyle BackColor="#EAEAD3" />
+                                    <SortedDescendingHeaderStyle BackColor="#575357" />
+                                </asp:GridView>
+                            </ContentTemplate>
+                        </asp:UpdatePanel>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
 </asp:Content>
+

@@ -1,7 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="CategoryProduct.ascx.cs" Inherits="WebApplication1.CategoryProduct" %>
 
-<div class="well zoomTarget">
-    <asp:Image runat="server" ID="imgProduct" CssClass="img-responsive" />
+<div class="well">
+    <asp:Image runat="server" ID="imgProduct" CssClass="img-responsive zoomz" />
     <p class="text-center">
         <asp:Label runat="server" ID="lblDesc"></asp:Label>
     </p>
@@ -18,3 +18,4 @@
         </div>
     </div>
 </div>
+

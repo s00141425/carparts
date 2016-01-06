@@ -15,6 +15,11 @@ version 3
 1. applied display user comment from order table
 2. applied jquery zoom
 
+version 4
+1. applied the view recently with AJAX
+2. fixed the jquery zoomzoomz
+
+
  frontPage
  ![frontPage](frontpage.jpg?raw=true)
 

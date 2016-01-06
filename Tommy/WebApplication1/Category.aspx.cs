@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.Entity;
 using System.Diagnostics;
 using System.Linq;
@@ -21,14 +22,13 @@ namespace WebApplication1
             if (!IsPostBack)
             {
                 DisplayMaker();
-
                 DisplayProductLists();
             }
-            
-            Test_Category_Product();
+            CategoryProduct();
+
         }
 
-        private void Test_Category_Product()
+        private void CategoryProduct()
         {
             var selectedMaker = db.VehicleMakes.SingleOrDefault(m => m.MakerName == selectedProduct.Maker);
 
@@ -49,6 +49,7 @@ namespace WebApplication1
                         CategoryProduct categoryProduct = (CategoryProduct)LoadControl("~/CategoryProduct.ascx");
                         categoryProduct.ID = "categoryProduct" + i;
                         categoryProduct.SelectedProduct = product;
+
                         if (i%2 == 1)
                         {
                             PlaceHolder1.Controls.Add(categoryProduct);

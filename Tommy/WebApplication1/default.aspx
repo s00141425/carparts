@@ -120,11 +120,11 @@
                     </div>
                 </div>
 
-                <div class="well zoomTarget">
+                <div class="well zoomz">
                     <div class="text-center">
                         <h5><asp:Label runat="server" ID="lblProdDesc" CssClass="label label-info"></asp:Label></h5>
                     </div>
-                    <asp:Image runat="server" ID="imgComment" class="center-block imgComment" />
+                    <asp:Image runat="server" ID="imgComment" class="center-block imgComment " />
                     <div class="caption">
                         <div class="row">
                             <div class="text-center">
