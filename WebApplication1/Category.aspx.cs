@@ -17,8 +17,17 @@ namespace WebApplication1
     {
         private MightyCarPartsDBContext db = new MightyCarPartsDBContext();
         private static SelectedProduct selectedProduct = new SelectedProduct();
+
+        private delegate void DisplaySelectDelegate(DropDownList list, string message);
+        private event DisplaySelectDelegate DisplaySelectEvent;
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            DisplaySelectEvent = (dropDownList, message) =>
+            {
+                dropDownList.Items.Insert(0, "--Select " + message + "--");
+            };
+
             if (!IsPostBack)
             {
                 DisplayMaker();
@@ -81,7 +90,9 @@ namespace WebApplication1
             ddlCategorySelector.DataTextField = "MakerName";
             ddlCategorySelector.DataValueField = "VehicleMakerID";
             ddlCategorySelector.DataBind();
-            ddlCategorySelector.Items.Insert(0, "--Select Maker--");
+
+            //ddlCategorySelector.Items.Insert(0, "--Select Maker--");
+            DisplaySelectEvent?.Invoke(ddlCategorySelector, "Maker");
         }
 
         protected void ddlCategorySelector_OnSelectedIndexChanged(object sender, EventArgs e)
@@ -106,7 +117,9 @@ namespace WebApplication1
                 ddlCategorySelector.DataValueField = "ModelID";
                 ddlCategorySelector.DataTextField = "ModelName";
                 ddlCategorySelector.DataBind();
-                ddlCategorySelector.Items.Insert(0, "--Select Model--");
+
+                //ddlCategorySelector.Items.Insert(0, "--Select Model--");
+                DisplaySelectEvent?.Invoke(ddlCategorySelector, "Model");
             }
 
             else if (ddlCategorySelector.Items[0].Text == "--Select Model--")
@@ -130,7 +143,9 @@ namespace WebApplication1
                 ddlCategorySelector.DataValueField = "ProductID";
                 ddlCategorySelector.DataTextField = "Years";
                 ddlCategorySelector.DataBind();
-                ddlCategorySelector.Items.Insert(0, "--Select Years--");
+
+                //ddlCategorySelector.Items.Insert(0, "--Select Years--");
+                DisplaySelectEvent?.Invoke(ddlCategorySelector, "Years");
             }
             else
             {

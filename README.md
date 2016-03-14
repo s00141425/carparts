@@ -19,6 +19,11 @@ version 4
 1. applied the view recently with AJAX
 2. fixed the jquery zoomzoomz 
 
+version 5
+1. added delegate and events. Thanks Dana.
+
+written: 14/March/2016
+Tommy Kang
 
  frontPage
  ![frontPage](frontpage.jpg?raw=true)

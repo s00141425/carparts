@@ -13,15 +13,26 @@ namespace WebApplication1
     public partial class Index : System.Web.UI.Page
     {
         MightyCarPartsDBContext db = new MightyCarPartsDBContext();
+
+        private delegate void DisplaySelectDelegate(DropDownList list, string message);
+        private event DisplaySelectDelegate DisplaySelectEvent;
+        
         protected void Page_Load(object sender, EventArgs e)
         {
+            DisplaySelectEvent = (dropDownList, message) =>
+            {
+                dropDownList.Items.Insert(0, "--Select " + message + "--");
+            };
+
             if (!IsPostBack)
             {
                 ddlMaker.DataSource = db.VehicleMakes.ToList();
                 ddlMaker.DataTextField = "MakerName";
                 ddlMaker.DataValueField = "VehicleMakerID";
                 ddlMaker.DataBind();
-                ddlMaker.Items.Insert(0, "--Select Maker--");
+
+                //ddlMaker.Items.Insert(0, "--Select Maker--");
+                DisplaySelectEvent?.Invoke(ddlMaker, "Maker");
 
                 Session.Clear();
             }
@@ -70,7 +81,9 @@ namespace WebApplication1
             ddlModel.DataValueField = "ModelID";
             ddlModel.DataTextField = "ModelName";
             ddlModel.DataBind();
-            ddlModel.Items.Insert(0, "--Select Model--");
+
+            //ddlModel.Items.Insert(0, "--Select Model--");
+            DisplaySelectEvent?.Invoke(ddlModel, "Model");
         }
 
         protected void ddlModel_OnSelectedIndexChanged(object sender, EventArgs e)
@@ -95,7 +108,9 @@ namespace WebApplication1
             ddlYear.DataValueField = "ProductID";
             ddlYear.DataTextField = "Years";
             ddlYear.DataBind();
-            ddlYear.Items.Insert(0, "--Select Years--");
+
+            //ddlYear.Items.Insert(0, "--Select Years--");
+            DisplaySelectEvent?.Invoke(ddlYear, "Years");
         }
 
         protected void lbnSearch_OnClick(object sender, EventArgs e)
